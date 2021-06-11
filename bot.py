@@ -108,4 +108,4 @@ async def 영어_이진수(ctx, *, text):
         result = result+c
     await ctx.send(result)
 
-bot.run("ODUyNzc2MDQyMDUzMjM4ODA0.YMLvlA.VIC7i9ol0176npxzXDiZB-HCHa8")
+bot.run(open('token.txt', 'r'))
