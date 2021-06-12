@@ -1,11 +1,17 @@
 import asyncio,discord,os
 from discord.colour import Color
 from discord.ext import commands
+import pickle
 
 game = discord.Game("!!명령어 입력")
 bot = commands.Bot(command_prefix='@@',Status=discord.Status.online,activity=game,help_command=None)
 
 alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"," ",".","?","!"]
+
+token_var = ""
+
+with open('list.txt', 'rb') as f:
+    token_var = pickle.load(f) # 단 한줄씩 읽어옴
 
 @bot.event
 async def on_ready():
@@ -108,4 +114,4 @@ async def 영어_이진수(ctx, *, text):
         result = result+c
     await ctx.send(result)
 
-bot.run(open('token.txt', 'r'))
+bot.run(token_var)
